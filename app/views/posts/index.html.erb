@@ -1,2 +1,14 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%= link_to 'Nuevo', new_post_path %>
+<h1>Blog</h1>
+<% @posts.each do |post| %>
+
+<h2>
+<%= 
+post.title.capitalize 
+%> </h2>
+
+<%= link_to 'Ver Post', post_path(post) %>
+<p><%= post.body.titleize %></p>
+<hr>
+<% end %>
+
