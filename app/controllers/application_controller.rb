@@ -5,16 +5,14 @@ class ApplicationController < ActionController::Base
 
 
   before_action :authenticate
-  helper_method :currentuser
+  helper_method :current_user
   
 
 
-  def currentuser
+  def current_user
 
-    if !@user  
-      @user=User.where(id:session[:user_id]).first
-    end
-    @user  
+    @user ||= @user=User.where(id:session[:user_id]).first
+
   end  
 
   

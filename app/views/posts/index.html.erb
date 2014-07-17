@@ -1,4 +1,6 @@
-<%= link_to 'Nuevo', new_post_path %>
+<b><%= current_user.email_string %></b>
+<%= link_to 'Log Out',sign_out_path %> | 
+<%= link_to 'Nuevo Post', new_post_path %>
 <h1>Blog</h1>
 <% @posts.each do |post| %>
 
@@ -11,8 +13,7 @@ post.title.capitalize
 <%= link_to 'Editar', edit_post_path(post) %>
 <p><%= post.body.titleize %></p>
 <br>
-<%= currentuser.email_string %>
-<%= link_to 'Log Out',sign_out_path %>
+
 <hr>
 <% end %>
 
