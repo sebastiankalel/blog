@@ -5,8 +5,19 @@ class ApplicationController < ActionController::Base
 
 
   before_action :authenticate
+  helper_method :currentuser
   
-  protected
+
+
+  def currentuser
+
+    if !@user  
+      @user=User.where(id:session[:user_id]).first
+    end
+    @user  
+  end  
+
+  
   def authenticate
     unless (session[:user_id])
       if (params[:controller] != "sessions" && params[:controller] != "users")
@@ -14,5 +25,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+
 
 end
