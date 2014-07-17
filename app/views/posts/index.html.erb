@@ -10,6 +10,7 @@ post.title.capitalize
 <%= link_to 'Ver Post', post_path(post) %> | 
 <%= link_to 'Editar', edit_post_path(post) %>
 <p><%= post.body.titleize %></p>
+<%= link_to 'Log Out',sign_out_path %>
 <hr>
 <% end %>
 

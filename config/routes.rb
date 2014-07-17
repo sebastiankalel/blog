@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/sign_in',  to: 'sessions#new'
+  get '/sign_out', to: 'sessions#destroy'
+  post 'sessions' => 'sessions#create' 
+
+  get '/sign_up',  to: 'users#new'
+  resources :users
+#  match 'users/sign_up', to: 'users#new', via: :get
+
+#  get "users/sign_up", to: "users#new"
+#  get 'users/sign_up'
+
   #root :to => "posts#index"
 
   get 'posts/index'
