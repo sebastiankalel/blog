@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+
   def index
     @posts=Post.all.to_a
   end
 
-  def new
-    @post=Post.new
-  end
+ # def new
+ #   @post=Post.new
+ # end
 
   def create
      @post = Post.new(post_params)
@@ -37,6 +38,10 @@ class PostsController < ApplicationController
 
   def post_params
       params.require(:post).permit(:title, :body)
+  end
+
+  def klass
+     "Post"
   end
 
 end

@@ -8,6 +8,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
 
+  def new
+
+    case self.klass
+
+    when "Post"
+      @post=Post.new
+    when "User"
+      @user=User.new 
+    end
+    
+  end
 
   def current_user
 
